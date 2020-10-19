@@ -15,11 +15,15 @@ class StudentController < ApplicationController
     end
 
     post "/login" do
-        binding.pry
+        erb :login
     end
 
     get "/signup" do
         erb :new
     end
 
+    post "/signup" do
+        @student = Student.create(params[:firstname], params[:lastname], params[:username], params[:password])
+        binding.pry
+    end
 end
