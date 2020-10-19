@@ -14,8 +14,12 @@ class StudentController < ApplicationController
         erb :login
     end
 
+    post "/login" do
+        binding.pry
+    end
+
     get "/signup" do
-        erb :signup
+        erb :new
     end
 
 end
