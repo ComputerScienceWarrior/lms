@@ -10,20 +10,20 @@ class StudentController < ApplicationController
         erb :index
     end
 
+    get "/signup" do
+        erb :"/students/new"
+    end
+
+    post "/signup" do
+        @student = Student.create(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password])
+        erb :"/students/show"
+    end
+
     get "/login" do
         erb :login
     end
 
     post "/login" do
         erb :login
-    end
-
-    get "/signup" do
-        erb :new
-    end
-
-    post "/signup" do
-        @student = Student.create(params[:firstname], params[:lastname], params[:username], params[:password])
-        binding.pry
     end
 end
