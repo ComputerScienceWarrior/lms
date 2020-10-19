@@ -11,7 +11,17 @@
     width: 100%;
   }
 
-  /* --- Welcome Page Styles --- */
+  /*  NAV STYLING */
+  #main-nav ul{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #main-nav ul li a{
+    text-decoration: none;
+  }
+
+  /* --- Index Page Styles --- */
   body {
     background-color: lightblue;
     color: #333;
