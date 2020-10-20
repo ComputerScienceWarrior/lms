@@ -16,6 +16,7 @@ class StudentController < ApplicationController
 
     post "/signup" do
         @student = Student.create(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password])
+        session[:user_id] = @student.id
         erb :"/students/show"
     end
 
