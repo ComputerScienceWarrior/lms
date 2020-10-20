@@ -17,11 +17,12 @@
     <div class="wrapper">
         <nav id="main-nav">
           <ul>
-          <li><a href="/">Home</a></li>
+          <li><a href="/"><img src="/images/home-icon.png" width="25px" height="25px"></a></li>
             <li><a href="#">View Courses</a></li>
             <% if Helpers.is_logged_in?(session) %>
               <li><a href="/students/<%= @student.slug %>">Profile</a></li>
               <li><a href="/logout">Logout</a></li>
+              <li><a href="/settings"><img src="/images/settings-icon.png" width="25px" height="25px"></a></li>
             <% else %>
               <li><a href="/login">Login</a> / <a href="/signup">Signup</a></li>
             <% end %>
