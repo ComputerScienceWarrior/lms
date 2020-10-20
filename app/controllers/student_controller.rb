@@ -24,6 +24,22 @@ class StudentController < ApplicationController
     end
 
     post "/login" do
-        erb :login
+        @student = Student.find_by(username: params[:username])
+        if @student && @student.authenticate(params[:password])
+            session[:user_id] = @student.id
+            erb :"/students/show"
+        else
+            erb :login
+        end
+    end
+
+    get "/logout" do
+        session.clear
+        redirect to '/'
+    end
+
+    get "/students/:slug" do
+        @student = Student.find_by_id(session[:user_id])
+        erb :"/students/show"
     end
 end
