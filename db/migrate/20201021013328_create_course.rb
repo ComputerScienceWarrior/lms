@@ -3,7 +3,8 @@ class CreateCourse < ActiveRecord::Migration
     create_table :courses do |c|
       c.string :title
       c.text :cirriculum
-      c.boolean :completed?
+      c.string :difficulty
+      c.string :language
       c.integer :student_id #foreign key linking to students table
     end
   end

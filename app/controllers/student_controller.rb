@@ -16,7 +16,7 @@ class StudentController < ApplicationController
 
     post "/signup" do
         @student = Student.create(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password])
-        session[:user_id] = @student.id
+        session[:student] = @student.id
         erb :"/students/show"
     end
 
@@ -27,7 +27,7 @@ class StudentController < ApplicationController
     post "/login" do
         @student = Student.find_by(username: params[:username])
         if @student && @student.authenticate(params[:password])
-            session[:user_id] = @student.id
+            session[:student] = @student.id
             erb :"/students/show"
         else
             erb :login
@@ -45,25 +45,25 @@ class StudentController < ApplicationController
     end
 
     get "/students/:slug/edit" do
-        @student = Student.find_by_id(session[:user_id])
+        @student = Student.find_by_id(session[:student_id])
         erb :"/students/edit"
     end
 
     patch "/students/:slug" do
-        @student = Student.find_by_id(session[:user_id])
+        @student = Student.find_by_id(session[:student_id])
         @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
         erb :"/students/show"
     end
 
     delete "/students/:slug" do
-        @student = Student.find_by_id(session[:user_id])
+        @student = Student.find_by_id(session[:student_id])
         @student.delete
         session.clear
         redirect to '/'
     end
 
     get "/settings" do
-        @student = Student.find_by_id(session[:user_id])
+        @student = Student.find_by_id(session[:student_id])
         erb :"/students/settings"
     end
 end
