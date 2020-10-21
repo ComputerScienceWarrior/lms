@@ -1,7 +1,6 @@
 class Student < ActiveRecord::Base
     has_secure_password
     has_many :courses
-    belongs_to :course
     validates :username, presence: true, uniqueness: true
 
     def slug
