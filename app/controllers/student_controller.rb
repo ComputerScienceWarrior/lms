@@ -16,7 +16,7 @@ class StudentController < ApplicationController
 
     post "/signup" do
         @student = Student.create(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password])
-        session[:student] = @student.id
+        session[:student_id] = @student.id
         erb :"/students/show"
     end
 
@@ -27,7 +27,7 @@ class StudentController < ApplicationController
     post "/login" do
         @student = Student.find_by(username: params[:username])
         if @student && @student.authenticate(params[:password])
-            session[:student] = @student.id
+            session[:student_id] = @student.id
             erb :"/students/show"
         else
             erb :login
@@ -40,7 +40,7 @@ class StudentController < ApplicationController
     end
 
     get "/students/:slug" do
-        @student = Student.find_by_id(session[:user_id])
+        @student = Student.find_by_id(session[:student_id])
         erb :"/students/show"
     end
 

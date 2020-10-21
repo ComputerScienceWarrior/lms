@@ -6,26 +6,3 @@
     <label for="username">Edit Username: </label><input id="username" name="username" type="text" value="<%= @student.username %>"/><br><br>
     <input type="submit" value="Update User">
 </form>
-
-class CreateCourse < ActiveRecord::Migration
-  def change
-    create_table :courses do |c|
-      c.string :title
-      c.text :cirriculum
-      c.string :difficulty
-      c.string :language
-      c.integer :student_id #foreign key linking to students table
-    end
-  end
-end
-
-class CreateStudent < ActiveRecord::Migration
-  def change
-    create_table :students do |s|
-      s.string :firstname
-      s.string :lastname
-      s.string :username
-      s.string :password_digest
-    end
-  end
-end
