@@ -9,6 +9,5 @@ class CourseController < ApplicationController
     get "/courses" do
         erb :index
     end
-    
 
 end
