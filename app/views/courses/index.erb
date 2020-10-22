@@ -1,0 +1,7 @@
+
+<div>
+    <h1>Available courses:</h1>
+    <% Course.all.each.with_index(1) do |course, i| %>
+        <li><%= i %>. <%= course.title %></li>
+    <% end %>
+</div>
