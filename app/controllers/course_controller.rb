@@ -7,7 +7,15 @@ class CourseController < ApplicationController
     end
   
     get "/courses" do
-        erb :index
+        erb :"/courses/index"
+    end
+
+    get "/courses/create" do 
+        erb :"/courses/new"
+    end
+
+    post "/courses" do
+        erb :"/courses/show"
     end
 
 end
