@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20201021013328) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "username"
-    t.string "password_digest"
+    t.string  "firstname"
+    t.string  "lastname"
+    t.string  "username"
+    t.string  "password_digest"
+    t.integer "course_id"
   end
 
 end
