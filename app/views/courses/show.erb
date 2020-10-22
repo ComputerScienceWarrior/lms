@@ -1,7 +1,7 @@
-<h1>All  courses:</h1>
+<h1><p><%= @course.title%></p></h1>
 <div>
-    <p>Course Title: <%= @course.title%></p>
     <p><%= @course.cirriculum%></p>
     <p>Difficulty Level: <%= @course.difficulty%></p>
     <p>Languages: <%= @course.language%></p>
+    <p>Course creator: <%= @student.firstname %> <%= @student.lastname %></p>
 </div>

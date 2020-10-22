@@ -1,6 +1,5 @@
 class Course < ActiveRecord::Base
     belongs_to :student
-    has_many :courses
     validates :title, presence: true, uniqueness: true
 
     def slug

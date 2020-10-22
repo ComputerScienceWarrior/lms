@@ -18,7 +18,17 @@ class CourseController < ApplicationController
 
     post "/courses" do
         @student = Student.find_by_id(session[:student_id])
-        @course = Course.create(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language], student_id: @student.id)
+        if (params[:title].include?("&"))
+            erb :"/courses/new"
+        else 
+            @course = Course.create(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language], student_id: @student.id)
+            erb :"/courses/show"
+        end
+    end
+
+    get "/courses/:slug" do 
+        @course = Course.find_by_slug(params[:slug].parameterize) #find the course by it's slug
+        @student = Student.find_by_id(session[:student_id])
         erb :"/courses/show"
     end
 

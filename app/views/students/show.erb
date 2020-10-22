@@ -1,3 +1,6 @@
 <h1>Welcome to your homepage <%= @student.username %></h1>
-<h2>View your courses below!</h2>
+<h2>View your created courses below!</h2>
+<% @student.courses.all.each do |students_course| %>
+    <a href="/courses/<%= students_course.title%>"><%= students_course.title %></a>
+<% end %>
 
