@@ -2,5 +2,9 @@
 <h2>View your created courses below!</h2>
 <% @student.courses.all.each do |students_course| %>
     <a href="/courses/<%= students_course.title%>"><%= students_course.title %></a>
+    <form action="/courses/<%= students_course.slug %>" method="POST">  
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input style="color: red" type="submit" value="Delete Course">
+    </form>
 <% end %>
 

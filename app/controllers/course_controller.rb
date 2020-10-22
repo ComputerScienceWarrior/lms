@@ -32,4 +32,10 @@ class CourseController < ApplicationController
         erb :"/courses/show"
     end
 
+    delete "/courses/:slug" do
+        @course = Course.find_by_slug(params[:slug].parameterize)
+        @course.delete
+        redirect to '/courses'
+    end
+
 end
