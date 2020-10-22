@@ -2,6 +2,6 @@
 <div>
     <h1>Available courses:</h1>
     <% Course.all.each.with_index(1) do |course, i| %>
-        <li><%= i %>. <%= course.title %></li>
+        <li><a href="/courses/<%= course.slug %>"><%= i %>. <%= course.title %></a></li>
     <% end %>
 </div>

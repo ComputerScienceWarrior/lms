@@ -3,5 +3,6 @@
     <p><%= @course.cirriculum%></p>
     <p>Difficulty Level: <%= @course.difficulty%></p>
     <p>Languages: <%= @course.language%></p>
+    <% @student = Student.find_by_id(@course.student_id)%>
     <p>Course creator: <%= @student.firstname %> <%= @student.lastname %></p>
 </div>

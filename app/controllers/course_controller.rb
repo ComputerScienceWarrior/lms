@@ -32,6 +32,20 @@ class CourseController < ApplicationController
         erb :"/courses/show"
     end
 
+    get "/courses/:slug/edit" do
+        @course = Course.find_by_slug(params[:slug])
+        @student = Student.find_by_id(session[:student_id])
+        erb :"/courses/edit"
+    end
+
+    patch "/courses/:slug" do
+        @course = Course.find_by_slug(params[:slug])
+        @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
+        # @student = Student.find_by_id(session[:student_id])
+        # @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
+        erb :"/courses/show"
+    end
+
     delete "/courses/:slug" do
         @course = Course.find_by_slug(params[:slug].parameterize)
         @course.delete
