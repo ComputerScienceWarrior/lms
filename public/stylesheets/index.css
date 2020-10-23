@@ -1,0 +1,59 @@
+#greeting h1{
+    color: lightgreen;
+    text-align: center;
+}
+
+#greeting h3{
+    font-style: italic;
+    text-align: center;
+}
+
+#cirriculum{
+    display: flex;
+    flex-direction: column;
+}
+
+#html-css{
+    background-color: aqua;
+    transition: 1s;
+}
+
+#html-css:hover{
+    background-color: aqua;
+    color: red;
+    transition: 1s;
+}
+
+#javascript{
+    background-color: yellow;
+}
+
+#javascript:hover{
+    background-color: yellow;
+    color: red;
+    transition: 1s;
+}
+
+#ruby{
+    background-color: red;
+}
+
+#dna{
+    background-color: gray;
+}
+
+#python{
+    background-image: linear-gradient(blue, yellow);
+}
+
+.courses{
+    font-size: 36px;
+    padding: 30px 5px;
+    border: solid 1px black;
+    border-radius: 15px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    font-style: italic;
+}
