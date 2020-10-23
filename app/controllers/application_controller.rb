@@ -7,7 +7,6 @@ class ApplicationController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views/") }
 
   get "/" do
-    session.clear #prevents unecessary issues.
     @student = Student.find_by_id(session[:student_id])
     erb :index
   end

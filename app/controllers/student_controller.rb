@@ -57,8 +57,12 @@ class StudentController < ApplicationController
 
     delete "/students/:slug" do
         @student = Student.find_by_id(session[:student_id])
-        @student.courses.clear
-        @student.delete
+        Course.all.each do |course|
+            if course.student_id == @student.id || course.student_id == nil
+                course.delete #delete all courses associated to the student being deleted and other possible courses with no id.
+            end
+        end
+        @student.delete #now, delete the student
         session.clear
         redirect to '/'
     end
