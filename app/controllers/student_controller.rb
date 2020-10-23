@@ -22,9 +22,6 @@ class StudentController < ApplicationController
         else
             erb :"/students/new"
         end
-        @student = Student.create(firstname: params[:firstname].strip, lastname: params[:lastname].strip, username: params[:username].strip, password: params[:password].strip)
-        session[:student_id] = @student.id
-        erb :"/students/show"
     end
 
     get "/login" do
