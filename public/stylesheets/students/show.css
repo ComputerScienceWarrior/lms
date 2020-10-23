@@ -1,3 +1,28 @@
 form {
     display: inline;
 }
+
+#course-settings{
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+#course-settings li{
+    margin: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    border: solid 1px black;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+
+#course-settings li a{
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#delete-button{
+    padding: 10px;
+}
