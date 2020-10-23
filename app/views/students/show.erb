@@ -5,7 +5,7 @@
     <% @student.courses.all.each do |students_course| %>
         <li>
             <a href="/courses/<%= students_course.title%>"><%= students_course.title %></a>
-            <a href="/courses/<%= students_course.slug %>/edit"><img src="/images/home-icon.png" width="25px" height="25px"></a>
+            <a href="/courses/<%= students_course.slug %>/edit"><img src="/images/edit-icon.png" width="25px" height="25px"></a>
             <form id="delete-form" action="/courses/<%= students_course.slug %>" method="POST"> 
                 <input type="hidden" id="hidden" name="_method" value="DELETE">
                 <input id="delete-button" style="color: red" type="submit" value="Delete Course">

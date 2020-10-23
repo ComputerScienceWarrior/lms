@@ -41,8 +41,6 @@ class CourseController < ApplicationController
     patch "/courses/:slug" do
         @course = Course.find_by_slug(params[:slug])
         @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
-        # @student = Student.find_by_id(session[:student_id])
-        # @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
         erb :"/courses/show"
     end
 
