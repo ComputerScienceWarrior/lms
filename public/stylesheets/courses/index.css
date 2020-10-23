@@ -1,0 +1,18 @@
+#available-courses{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* A dynamically created div card that is in card form */
+.course-cards{
+    border: solid 1px black;
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.course-cards a{
+    text-decoration: none;
+}

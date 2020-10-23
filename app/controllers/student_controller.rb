@@ -15,7 +15,14 @@ class StudentController < ApplicationController
     end
 
     post "/signup" do
-        @student = Student.create(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password])
+        if ((params[:firstname] != "") && (params[:lastname] != "") && (params[:username] != "") && (params[:password] != ""))
+            @student = Student.create(firstname: params[:firstname].strip, lastname: params[:lastname].strip, username: params[:username].strip, password: params[:password].strip)
+            session[:student_id] = @student.id
+            erb :"/students/show"
+        else
+            erb :"/students/new"
+        end
+        @student = Student.create(firstname: params[:firstname].strip, lastname: params[:lastname].strip, username: params[:username].strip, password: params[:password].strip)
         session[:student_id] = @student.id
         erb :"/students/show"
     end
