@@ -15,35 +15,62 @@
 
 #html-css{
     background-color: aqua;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 #html-css:hover{
-    background-color: aqua;
     color: red;
-    transition: 1s;
+    transition: 0.5s;
+    border: solid 3px black;
+    font-size: 42px;
 }
 
 #javascript{
     background-color: yellow;
+    transition: 0.5s;
 }
 
 #javascript:hover{
-    background-color: yellow;
     color: red;
-    transition: 1s;
+    transition: 0.5s;
+    border: solid 3px black;
+    font-size: 42px;
 }
 
 #ruby{
     background-color: red;
+    transition: 0.5s;
+}
+
+#ruby:hover{
+    color: blue;
+    transition: 0.5s;
+    border: solid 3px black;
+    font-size: 42px;
 }
 
 #dna{
     background-color: gray;
+    transition: 0.5s;
+}
+
+#dna:hover{
+    transition: 0.5s;
+    border: solid 3px black;
+    color: red;
+    font-size: 42px;
 }
 
 #python{
     background-image: linear-gradient(blue, yellow);
+    transition: 0.5s;
+}
+
+#python:hover{
+    border: solid 3px black;
+    color: red;
+    font-size: 42px;
+    transition: 0.5s;
 }
 
 .courses{

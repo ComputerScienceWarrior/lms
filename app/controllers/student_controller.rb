@@ -57,6 +57,7 @@ class StudentController < ApplicationController
 
     delete "/students/:slug" do
         @student = Student.find_by_id(session[:student_id])
+        @student.courses.clear
         @student.delete
         session.clear
         redirect to '/'
