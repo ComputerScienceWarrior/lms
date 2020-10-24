@@ -1,10 +1,23 @@
 <h1>Hello, <%= @student.username %>.</h1>
 <h2>Create a course for your students below.</h2>
 <form action="/courses" method="POST">
-    <label for="title">Course Title: </label><input id="title" name="title" type="text" placeholder="Enter a title for the course"/><br><br>
+    <label for="title">Course Title: </label><input id="title" name="title" type="text" placeholder="Enter a course title"/><br><br>
     
-    <label for="cirriculum">Course Cirriculum: </label><textarea id="cirriculum" name="cirriculum" type="text" placeholder="Enter course cirriculum"></textarea><br><br>
-    <label for="title">Course Difficulty: </label><input id="difficulty" name="difficulty" type="text" placeholder="Enter course difficulty level"/><br><br>
-    <label for="language"> </label><input id="language" name="language" type="text" placeholder="Enter the courses language"/><br><br>
+    <label for="cirriculum">Course Cirriculum: </label><br><textarea id="cirriculum" name="cirriculum" type="text"></textarea><br><br>
+    
+    <div class="attribute-div" id="course-difficulty">
+        <label for="title"><u>Course Difficulty</u></label><br><br>
+        <label for="easy">Easy </label><input id="easy" name="difficulty" type="radio" value="Easy"/><br><br>
+        <label for="medium">Medium </label><input id="medium" name="difficulty" type="radio" value="Medium"/><br><br>
+        <label for="hard">Hard </label><input id="hard" name="difficulty" type="radio" value="Hard"/><br><br>
+    </div>
+
+    <div class="attribute-div" id="course-language">
+        <label for="title"><u>Select a language</u></label><br><br>
+        <label for="HTML / CSS">HTML / CSS </label><input id="HTML / CSS" name="language" type="radio" value="HTML / CSS"/><br><br>
+        <label for="JavaScript">JavaScript </label><input id="JavaScript" name="language" type="radio" value="JavaScript"/><br><br>
+        <label for="Ruby">Ruby </label><input id="Ruby" name="language" type="radio" value="Ruby"/><br><br>
+    </div>
+    
     <input type="submit" value="Create Course">
 </form>
