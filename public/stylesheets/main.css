@@ -83,7 +83,6 @@
   }
 
   #footer ul {
-    border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
     display: flex;
@@ -111,7 +110,6 @@
   .sidebar {
     background: transparent;
     border: none;
-    border-top: 2px solid #ccc;
     padding: 0;
   }
 

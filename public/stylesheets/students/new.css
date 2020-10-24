@@ -16,7 +16,7 @@ h1{
     text-align: center;
 }
 
-small{
+form small{
     font-style: italic;
     color: red;
     visibility: hidden;

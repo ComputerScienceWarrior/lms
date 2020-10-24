@@ -31,7 +31,7 @@
               <% @student = Student.find_by_id(session[:student_id]) %>
               <li><a href="/students/<%= @student.slug %>">Profile</a></li>
               <li><a href="/logout">Logout</a></li>
-              <li><a href="/settings"><img src="/images/settings-icon.png" width="25px" height="25px"></a></li>
+              <li><i><small style="color: green;">Logged in as <a href="/students/<%= @student.slug %>"><%= @student.username %></a></small></i></li>
             <% else %>
               <li><a href="/login">Login</a> / <a href="/signup">Signup</a></li>
             <% end %>
@@ -44,6 +44,15 @@
         <ul>
           <li>&copy;CS Warrior Academy 2020</li>
           <li><a href="#">Partner Sites</a></li>
+          <li> 
+          <li><a href="/students/<%= @student.slug %>/edit">Edit Profile</a></li>
+          <li>
+              <form action="/students/<%= @student.slug %>" method="POST">  
+                  <input type="hidden" id="hidden" name="_method" value="DELETE">
+                  <input style="color: red" type="submit" value="Delete Profile">
+              </form>
+          </li>
+          </li>
         </ul>
       </footer>
     </div>

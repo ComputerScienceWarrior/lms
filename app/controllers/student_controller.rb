@@ -23,14 +23,14 @@ class StudentController < ApplicationController
             end
         end
 
-        #if the values are not empty, create user and show the page.
-        if ((params[:firstname] != "") && (params[:lastname] != "") && (params[:username] != "") && (params[:password] != ""))
+        #if the values are not empty and if passwords match, create user and show the page.
+        if ((params[:firstname] != "") && (params[:lastname] != "") && (params[:username] != "") && (params[:password] != "") && params[:password] == params[:passwordconf])
             @student = Student.create(firstname: params[:firstname].strip, lastname: params[:lastname].strip, username: params[:username].strip, password: params[:password].strip)
             session[:student_id] = @student.id
             erb :"/students/show"
         #otherwise, return user to create new user page again without making user.
         else
-            erb :"/students/new"
+            redirect to "/signup"
         end
     end
 
