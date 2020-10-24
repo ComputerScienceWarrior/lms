@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+#signup-form-wrapper{
+    border: solid 1px black;
+    border-radius: 15px;
+    padding: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#signup-form-wrapper form{
+    text-align: center;
+}
+
+small{
+    font-style: italic;
+    color: red;
+    visibility: hidden;
+}

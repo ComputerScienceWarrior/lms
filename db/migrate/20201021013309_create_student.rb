@@ -5,7 +5,6 @@ class CreateStudent < ActiveRecord::Migration
       s.string :lastname
       s.string :username
       s.string :password_digest
-      s.integer :course_id
     end
   end
 end
