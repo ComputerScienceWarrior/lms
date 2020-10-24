@@ -1,9 +1,17 @@
-<h1><p><%= @course.title%></p></h1>
+<p>
+    <h1 id="course-title-h1">
+        <%= @course.title%>
+    </h1>
+    <ul>
+        <li><span id="difficulty-span">Difficulty Level: <%= @course.difficulty%></span></li>
+        <li><p id="language-para">Languages: <%= @course.language%></p></li>
+    </ul>
+</p>
+
 <div>
-    <p><%= @course.cirriculum%></p>
-    <p>Difficulty Level: <%= @course.difficulty%></p>
-    <p>Languages: <%= @course.language%></p>
-    <p>Course Cirriculum: <%= @course.cirriculum%></p>
+    <div id="course-curriculum">
+        <p><h2><label>What's the course about? </label></h2><p id="curriculum-para"><%= @course.cirriculum%></p></p>
+    </div>
     <% @student = Student.find_by_id(@course.student_id)%>
-    <p>Course creator: <%= @student.firstname %> <%= @student.lastname %></p>
+    <p id="creator-para">Course creator: <%= @student.firstname %> <%= @student.lastname %></p>
 </div>

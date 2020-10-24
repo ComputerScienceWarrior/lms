@@ -1,0 +1,23 @@
+#course-title-h1{
+    display: inline;
+}
+
+#difficulty-span{
+    float: right;
+}
+
+#course-curriculum{
+    border: solid 1px black;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+#creator-para{
+    font-weight: bold;
+    text-align: center;
+    font-size: small;
+    font-style: italic;
+    font-family: sans-serif;
+}
+

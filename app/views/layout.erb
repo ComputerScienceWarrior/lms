@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/stylesheets/index.css" />
     <link rel="stylesheet" href="/stylesheets/courses/index.css" />
     <link rel="stylesheet" href="/stylesheets/courses/new.css" />
+    <link rel="stylesheet" href="/stylesheets/courses/show.css" />
     
   </head>
   <body>
@@ -45,14 +46,16 @@
           <li>&copy;CS Warrior Academy 2020</li>
           <li><a href="#">Partner Sites</a></li>
           <li> 
-          <li><a href="/students/<%= @student.slug %>/edit">Edit Profile</a></li>
-          <li>
-              <form action="/students/<%= @student.slug %>" method="POST">  
-                  <input type="hidden" id="hidden" name="_method" value="DELETE">
-                  <input style="color: red" type="submit" value="Delete Profile">
-              </form>
-          </li>
-          </li>
+          <% if Helpers.is_logged_in?(session) %>
+            <li><a href="/students/<%= @student.slug %>/edit">Edit Profile</a></li>
+              <li>
+                  <form action="/students/<%= @student.slug %>" method="POST">  
+                      <input type="hidden" id="hidden" name="_method" value="DELETE">
+                      <input style="color: red" type="submit" value="Delete Profile">
+                  </form>
+              </li>
+            </li>
+          <% end %>
         </ul>
       </footer>
     </div>
