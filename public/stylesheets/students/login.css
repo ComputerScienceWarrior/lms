@@ -1,0 +1,20 @@
+ #main-div-wrapper{
+     display: flex;
+     justify-content: center;
+ }
+ 
+ #login-form-wrapper{
+     border: solid 1px black;
+     padding: 20px;
+     width: 50%;
+     display: flex;
+     justify-content: space-evenly;
+ }
+
+ #login-form-wrapper form{
+     align-items: center;
+}
+
+#login-form-wrapper form input{
+    display: inline;
+}
