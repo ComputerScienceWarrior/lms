@@ -38,7 +38,6 @@
             <% end %>
           </ul>
         </nav>
-
         <%= yield %>
 
       <footer id="footer">
@@ -46,6 +45,7 @@
           <li>&copy;CS Warrior Academy 2020</li>
           <li><a href="#">Partner Sites</a></li>
           <li> 
+          <%# control what is showing based on  %>
           <% if Helpers.is_logged_in?(session) %>
             <li><a href="/students/<%= @student.slug %>/edit">Edit Profile</a></li>
               <li>
