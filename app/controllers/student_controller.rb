@@ -36,7 +36,7 @@ class StudentController < ApplicationController
         @student = Student.find_by(username: params[:username])
         if @student && @student.authenticate(params[:password])
             session[:student_id] = @student.id
-            erb :"/students/show"
+            redirect to "/students/#{@student.id}/#{@student.slug}"
         else
             erb :login
         end
@@ -47,33 +47,23 @@ class StudentController < ApplicationController
         redirect to '/'
     end
 
-    # get "/students/:slug" do
-    #     @student = Student.find_by_id(session[:student_id])
-    #     erb :"/students/show"
-    # end
-
     get "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
         erb :"/students/show"
     end
 
-    get "/students/:id" do
-        @student = Student.find_by_id(session[:student_id])
-        erb :"/students/show"
-    end
-
-    get "/students/:slug/edit" do
+    get "/students/:id/:slug/edit" do
         @student = Student.find_by_id(session[:student_id])
         erb :"/students/edit"
     end
 
-    patch "/students/:slug" do
+    patch "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
         @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
         redirect "/students/show"
     end
 
-    delete "/students/:slug" do
+    delete "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
         Course.all.each do |course|
             if course.student_id == @student.id || course.student_id == nil

@@ -11,7 +11,6 @@ class Helpers
     def self.invalid_credentials?(params)
         badChars = ["&", ",", ".", "/", "@", "#", "$", "%", "*", "(", ")", "!", "^", "_", "\\", ":", ";", "=", "+", "?"]
         badChars.each do |bad_char|
-            binding.pry
             if ( (params[:firstname].include?(bad_char)) || (params[:lastname].include?(bad_char)) || (params[:username].include?(bad_char)) )
                 return true
             end

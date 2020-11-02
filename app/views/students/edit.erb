@@ -1,5 +1,5 @@
 <h1>Edit user information below</h1>
-<form action="/students/<%= @student.slug %>" method="POST">
+<form action="/students/<%= @student.id %>/<%= @student.slug %>" method="POST">
     <input type="hidden" value="patch" name="_method">
     <label for="first-name">Edit First Name: </label><input id="first-name" name="firstname" type="text" value="<%= @student.firstname %>"/><br><br>
     <label for="last-name"> Edit Last Name: </label><input id="last-name" name="lastname" type="text" value="<%= @student.lastname %>"/><br><br>

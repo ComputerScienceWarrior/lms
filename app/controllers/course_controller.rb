@@ -41,7 +41,7 @@ class CourseController < ApplicationController
     patch "/courses/:slug" do
         @course = Course.find_by_slug(params[:slug])
         @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
-        redirect "/courses/show"
+        redirect to "/courses/#{@course.slug}"
     end
 
     delete "/courses/:slug" do
