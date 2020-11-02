@@ -47,7 +47,12 @@ class StudentController < ApplicationController
         redirect to '/'
     end
 
-    get "/students/:slug" do
+    # get "/students/:slug" do
+    #     @student = Student.find_by_id(session[:student_id])
+    #     erb :"/students/show"
+    # end
+
+    get "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
         erb :"/students/show"
     end

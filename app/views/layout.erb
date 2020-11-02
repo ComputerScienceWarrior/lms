@@ -30,7 +30,7 @@
             <li><a href="/courses">View Courses</a></li>
             <% if Helpers.is_logged_in?(session) %>
               <% @student = Student.find_by_id(session[:student_id]) %>
-              <li><a href="/students/<%= @student.slug %>">Profile</a></li>
+              <li><a href="/students/<%= @student.id %>/<%= @student.slug %>">Profile</a></li>
               <li><a href="/logout">Logout</a></li>
               <li><i><small style="color: green;">Logged in as <a href="/students/<%= @student.slug %>"><%= @student.username %></a></small></i></li>
             <% else %>

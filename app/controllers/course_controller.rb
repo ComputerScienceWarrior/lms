@@ -19,7 +19,7 @@ class CourseController < ApplicationController
     post "/courses" do
         @student = Student.find_by_id(session[:student_id])
         if (params[:title].include?("&"))
-            erb :"/courses/new"
+            redirect "/courses/new"
         else 
             @course = Course.create(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language], student_id: @student.id)
             erb :"/courses/show"
@@ -41,7 +41,7 @@ class CourseController < ApplicationController
     patch "/courses/:slug" do
         @course = Course.find_by_slug(params[:slug])
         @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
-        erb :"/courses/show"
+        redirect "/courses/show"
     end
 
     delete "/courses/:slug" do
