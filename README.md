@@ -4,7 +4,10 @@ The Learning Management System is a website create to put the power of teaching
 into the hands of the students. Student users with an account can create courses
 with any type of curriculum they would like to share. Users will be able to view course
 information, and access the information within the course, such as curriculum, course 
-synopsis and more. 
+synopsis and more. Typically a course will be a shortened course meant to convey a concept.
+Therefore a standard course will have a basic curriculum, and include valuable course information such as 
+resources, definitions and possibly even a tutorial video.
+
 
 
 ## Usage
