@@ -42,7 +42,7 @@ class Helpers
         return false
     end
 
-    def course_has_empty_params?(params)
+    def self.course_has_empty_params?(params)
         params[:title] == "" || params[:cirriculum] == "" || params[:difficulty] == "" || params[:language] == "" || params[:student_id] == "" ? true : false
     end
 end

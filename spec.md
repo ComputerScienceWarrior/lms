@@ -11,7 +11,7 @@ Specs:
 - [x] Ensure that users can't modify content created by other users (This requirement is met because users cannot even possibly view or see specific content unless they are logged in as that user.)
 - [x] Include user input validations (This requirement is met because during login process, I prevent a user from creating an account and route them back to new sign up page if it contains any of the specifically defined 'special characters')
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code (install instructions not necessary.)
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code 
 
 Confirm
 - [x] You have a large number of small Git commits

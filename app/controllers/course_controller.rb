@@ -38,9 +38,18 @@ class CourseController < ApplicationController
     end
 
     patch "/courses/:id/:slug" do
-        @course = Course.find_by_slug(params[:slug])
-        @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
-        redirect to "/courses/#{@course.id}/#{@course.slug}"
+        invalid_title = Helpers.title_has_invalid_chars?(params)
+        empty_params = Helpers.course_has_empty_params?(params)
+
+        @student = Student.find_by_id(session[:student_id])
+        @course = Course.find_by_id(params[:id])
+
+        if ( invalid_title || empty_params )
+            redirect "/courses/#{@course.id}/#{@course.slug}/edit"
+        else 
+            @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
+            redirect to "/courses/#{@course.id}/#{@course.slug}"
+        end
     end
 
     delete "/courses/:id/:slug" do
