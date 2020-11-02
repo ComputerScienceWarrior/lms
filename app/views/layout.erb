@@ -34,7 +34,7 @@
               <% @student = Student.find_by_id(session[:student_id]) %>
               <li><a href="/students/<%= @student.id %>/<%= @student.slug %>">Profile</a></li>
               <li><a href="/logout">Logout</a></li>
-              <li><i><small style="color: green;">Logged in as <a href="/students/<%= @student.slug %>"><%= @student.username %></a></small></i></li>
+              <li><i><small style="color: green;">Logged in as <a href="/students/<%= @student.id %>/<%= @student.slug %>"><%= @student.username %></a></small></i></li>
 
             <%# IF A USER IS JUST BROWSING BUT NOT LOGGED IN %>
             <% else %>
