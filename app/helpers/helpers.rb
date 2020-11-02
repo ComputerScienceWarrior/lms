@@ -12,7 +12,7 @@ class Helpers
 
     #takes in params hash and the route...used for all areas of program to prevent bad login information
     def self.invalid_credentials?(params)
-        badChars = ["&", ",", ".", "/", "@", "#", "$", "%", "*", "(", ")", "!", "^", "_", "\\", ":", ";", "=", "+", "?"]
+        badChars = ["&", ",", ".", "/", "@", "#", "$", "%", "*", "(", ")", "!", "^", "_", "\\", ":", ";", "=", "+", "?", "<", ">"]
         badChars.each do |bad_char|
             if ( (params[:firstname].include?(bad_char)) || (params[:lastname].include?(bad_char)) || (params[:username].include?(bad_char)) )
                 return true
@@ -33,7 +33,7 @@ class Helpers
         # COURSE HELPER METHODS
     ################################
     def self.title_has_invalid_chars?(params)
-        badChars = ["&", ",", ".", "/", "@", "#", "$", "%", "*", "(", ")", "!", "^", "_", "\\", ":", ";", "=", "+", "?"]
+        badChars = ["&", ",", ".", "/", "@", "#", "$", "%", "*", "(", ")", "!", "^", "_", "\\", ":", ";", "=", "+", "?", "<", ">"]
         badChars.each do |bad_char|
             if ( (params[:title].include?(bad_char)) )
                 return true

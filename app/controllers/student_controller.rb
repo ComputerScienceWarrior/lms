@@ -55,8 +55,16 @@ class StudentController < ApplicationController
 
     patch "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
-        @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
-        redirect "/students/#{@student.id}/#{@student.slug}"
+        invalid_chars = Helpers.invalid_credentials?(params) 
+        empty_fields = Helpers.empty_fields?(params)
+        passwords_dont_match = Helpers.passwords_dont_match?(params[:password], params[:passwordconf])
+
+        if (invalid_chars || empty_fields || passwords_dont_match)
+            redirect "/students/#{@student.id}/#{@student.slug}/edit"
+        else
+            @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
+            redirect "/students/#{@student.id}/#{@student.slug}"
+        end
     end
 
     delete "/students/:id/:slug" do
