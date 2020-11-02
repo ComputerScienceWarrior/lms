@@ -4,7 +4,7 @@
     <ul id="available-courses">
         <% Course.all.each.with_index(1) do |course, i| %>
                 <div class="course-cards">
-                    <a href="/courses/<%= course.slug %>"><%= course.title %></a>
+                    <a href="/courses/<%= course.id %>/<%= course.slug %>"><%= course.title %></a>
                      <li><b>Language:</b> <%= course.language %></li>
                      <li id="difficulty"><b>Difficulty:</b> <%= course.difficulty %></li>
                 </div>

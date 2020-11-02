@@ -24,7 +24,7 @@ class StudentController < ApplicationController
         else
             @student = Student.create(firstname: params[:firstname].strip, lastname: params[:lastname].strip, username: params[:username].strip, password: params[:password].strip)
             session[:student_id] = @student.id #set student to logged in state
-            redirect "/students/show"
+            redirect "/students/#{@student.id}/#{@student.slug}"
         end
     end
 
@@ -60,7 +60,7 @@ class StudentController < ApplicationController
     patch "/students/:id/:slug" do
         @student = Student.find_by_id(session[:student_id])
         @student.update(firstname: params[:firstname], lastname: params[:lastname], username: params[:username])
-        redirect "/students/show"
+        redirect "/students/#{@student.id}/#{@student.slug}"
     end
 
     delete "/students/:id/:slug" do

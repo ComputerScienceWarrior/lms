@@ -26,25 +26,25 @@ class CourseController < ApplicationController
         end
     end
 
-    get "/courses/:slug" do 
+    get "/courses/:id/:slug" do 
         @course = Course.find_by_slug(params[:slug].parameterize) #find the course by it's slug
         @student = Student.find_by_id(session[:student_id])
         erb :"/courses/show"
     end
 
-    get "/courses/:slug/edit" do
+    get "/courses/:id/:slug/edit" do
         @course = Course.find_by_slug(params[:slug])
         @student = Student.find_by_id(session[:student_id])
         erb :"/courses/edit"
     end
 
-    patch "/courses/:slug" do
+    patch "/courses/:id/:slug" do
         @course = Course.find_by_slug(params[:slug])
         @course.update(title: params[:title], cirriculum: params[:cirriculum], difficulty: params[:difficulty], language: params[:language])
-        redirect to "/courses/#{@course.slug}"
+        redirect to "/courses/#{@course.id}/#{@course.slug}"
     end
 
-    delete "/courses/:slug" do
+    delete "/courses/:id/:slug" do
         @course = Course.find_by_slug(params[:slug].parameterize)
         @course.delete
         redirect to '/courses'
