@@ -1,6 +1,6 @@
 <h2><%= @student.username %>, Update your course using the form below.</h2>
 <form action="/courses/<%= @course.id %>/<%= @course.slug %>" method="POST">
-    <input type="hidden" value="patch" name="_method">
+    <input type="hidden" value="patch" name="_method"/>
     <label for="title">Course Title: </label><input id="title" name="title" type="text" value="<%= @course.title %>"/><br><br>
     <label for="cirriculum">Course Cirriculum: </label><textarea id="cirriculum" name="cirriculum" type="text"><%= @course.cirriculum %></textarea><br><br>
  

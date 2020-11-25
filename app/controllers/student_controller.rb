@@ -1,11 +1,6 @@
 require './config/environment'
 
 class StudentController < ApplicationController
-  
-    get '/students' do
-        erb :index
-    end
-
     get "/signup" do
         erb :"/students/new"
     end
@@ -44,17 +39,20 @@ class StudentController < ApplicationController
     end
 
     get "/students/:id/:slug" do
-        @student = Student.find_by_id(session[:student_id])
+        # @student = Student.find_by_id(session[:student_id])
+        current_student
         erb :"/students/show"
     end
 
     get "/students/:id/:slug/edit" do
-        @student = Student.find_by_id(session[:student_id])
+        # @student = Student.find_by_id(session[:student_id])
+        current_student
         erb :"/students/edit"
     end
 
     patch "/students/:id/:slug" do
-        @student = Student.find_by_id(session[:student_id])
+        # @student = Student.find_by_id(session[:student_id])
+        current_student
         invalid_chars = Helpers.invalid_credentials?(params) 
         empty_fields = Helpers.empty_fields?(params)
         passwords_dont_match = Helpers.passwords_dont_match?(params[:password], params[:passwordconf])
@@ -68,7 +66,8 @@ class StudentController < ApplicationController
     end
 
     delete "/students/:id/:slug" do
-        @student = Student.find_by_id(session[:student_id])
+        # @student = Student.find_by_id(session[:student_id])
+        current_student
         Course.all.each do |course|
             if course.student_id == @student.id || course.student_id == nil
                 course.delete #delete all courses associated to the student being deleted and other possible courses with no id.
