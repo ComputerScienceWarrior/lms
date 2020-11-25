@@ -1,0 +1,7 @@
+[] Recreate the website as ROR in addition to this program to show contrasting updates
+[] add ratings functionality
+[] add show pages for users/teachers
+[] Create Teacher Controllers
+[] Update program to be a web app that has teachers, creating courses that students take.
+[] Massive Overhaul to the CSS of every page
+[] update explanation of demo video and take snapshots
