@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_29_224540) do
+ActiveRecord::Schema.define(version: 3) do
 
   create_table "courses", force: :cascade do |t|
     t.text "title"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 2023_12_29_224540) do
     t.integer "points_value"
     t.text "type"
     t.integer "grade_level"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_tests_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,8 +39,12 @@ ActiveRecord::Schema.define(version: 2023_12_29_224540) do
     t.integer "age"
     t.integer "grade_level"
     t.decimal "gpa"
+    t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_users_on_course_id"
   end
 
+  add_foreign_key "tests", "courses", on_delete: :cascade
+  add_foreign_key "users", "courses", on_delete: :restrict
 end
