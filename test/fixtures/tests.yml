@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  subject: MyText
+  points_value: 1
+  type: MyText
+  grade_level: 1
+
+two:
+  title: MyText
+  subject: MyText
+  points_value: 1
+  type: MyText
+  grade_level: 1
